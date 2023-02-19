@@ -1,0 +1,84 @@
+.header {
+    background-color: var(--header-bg);
+    padding: 14px 0 13px;
+    &-logo {
+        max-width: 224px;
+        @media (max-width: 1179px) {
+            max-width: 180px;
+        }
+    }
+    &-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        column-gap: 15px;
+    }
+    &-list {
+        @include list-reset;
+        display: flex;
+        column-gap: 24px;
+        @media (max-width: 1439px) {
+            column-gap: 14px;
+        }
+        &-item, &-item a {
+            color: var(--clr-ntr-300);
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 1.2em;
+            @media (max-width: 1439px) {
+                font-size: 16px;
+            }
+        }
+        &-item a {
+            display: inline-block;
+            background-image: linear-gradient(0deg, var(--clr-prm-200), var(--clr-prm-200));
+            background-size: 0% 2px;
+            background-repeat: no-repeat;
+            background-position: left bottom;
+            padding: 10px 0;
+            transition: all .3s;
+            &:hover {
+                background-size: 100% 2px;
+            }
+        }
+    }
+}
+
+@media (max-width: 1023px) {
+    .header {
+        position: relative;
+        z-index: 100;
+        &-nav {
+            position: absolute;
+            background-color: var(--header-bg);
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 66px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all .5s;
+            &--active {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+        &-list {
+            flex-direction: column;
+            align-items: center;
+            row-gap: 14px;
+            margin-top: 70px;
+            &-item, &-item a {
+                font-size: 18px;
+            }
+        }
+        &-hamburger {
+            padding: 0;
+            background-color: transparent;
+            border: 0;
+        }
+        &-logo {
+            max-width: 138px;
+        }
+    }
+}
